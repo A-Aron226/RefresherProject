@@ -11,16 +11,24 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] Animator anim; //referencing player animation
     [SerializeField] float jumpStrength;
 
+
+    IA_PlayerActions actions; //referencing Input action generated script
+
     // Start is called before the first frame update
     void Start()
     {
+        actions = new IA_PlayerActions();
+        actions.Player.Enable();
+
         rb = GetComponent<Rigidbody>(); //communicates to a rigidbody component from an object (such as the capsule with the rigidbody component)
     }
 
     // Update is called once per frame
     void Update()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        //input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        input = actions.Player.Move.ReadValue<Vector2>();
 
         anim.SetFloat("moveSpeed", Mathf.Abs(input.magnitude)); //Setting the parameter 'moveSpeed' to input
     }
@@ -50,5 +58,10 @@ public class CharacterMovement : MonoBehaviour
     {
         Debug.Log("Jump");
         rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+    }
+
+    public void OnMove()
+    {
+        
     }
 }
