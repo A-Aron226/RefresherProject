@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  anim: {fileID: 5866666021909216657, guid: 005645f1b1eeee04d9a8ce95655185b1, type: 3}
+  anim: {fileID: 1973860639}
 --- !u!54 &638580636
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a23f6a969fd29664c846f7cc196cbcc8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -828,6 +828,11 @@ PrefabInstance:
 --- !u!4 &1973860638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 005645f1b1eeee04d9a8ce95655185b1, type: 3}
+  m_PrefabInstance: {fileID: 1973860637}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1973860639 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 005645f1b1eeee04d9a8ce95655185b1, type: 3}
   m_PrefabInstance: {fileID: 1973860637}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
