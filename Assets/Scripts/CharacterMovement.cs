@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     Rigidbody rb;
     [SerializeField] float speed;
     [SerializeField] Animator anim; //referencing player animation
+    [SerializeField] float jumpStrength;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +23,6 @@ public class CharacterMovement : MonoBehaviour
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
         anim.SetFloat("moveSpeed", Mathf.Abs(input.magnitude)); //Setting the parameter 'moveSpeed' to input
-
-        Debug.Log(input);
     }
 
     private void FixedUpdate() // udpates based on physics //Code lines if you want to mess with physics
@@ -44,5 +44,11 @@ public class CharacterMovement : MonoBehaviour
         camForward.Normalize();
 
         return input.x * camRight + input.y * camForward; //multiplying input by camera vector
+    }
+
+    public void OnJump()
+    {
+        Debug.Log("Jump");
+        rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
     }
 }
