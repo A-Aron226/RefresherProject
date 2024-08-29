@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector2 input;
     Rigidbody rb;
     [SerializeField] float speed;
+    [SerializeField] Animator anim; //referencing playing animation
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        anim.SetFloat("moveSpeed", input.magnitude); //Setting the parameter 'moveSpeed' to input
 
         Debug.Log(input);
     }
