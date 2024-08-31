@@ -56,8 +56,9 @@ public class CharacterMovement : MonoBehaviour
 
     public void OnJump()
     {
-        Debug.Log("Jump");
+        
         rb.AddForce(Vector3.up * jumpStrength, ForceMode.Impulse);
+        anim.SetTrigger("jump");
     }
 
     public void OnMove()
