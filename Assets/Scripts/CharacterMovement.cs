@@ -39,6 +39,11 @@ public class CharacterMovement : MonoBehaviour
 
         var newVelocity = new Vector3(newInput.x * speed * Time.fixedDeltaTime, rb.velocity.y, newInput.z * speed * Time.fixedDeltaTime);// temp velocity
         rb.velocity = newVelocity;
+
+        if (rb.position.y > 2)
+        {
+            anim.SetTrigger("jump"); //placeholder animation until falling animation is ported
+        }
     }
 
     Vector3 GetCameraInput(Vector2 input, Camera cam)
@@ -64,5 +69,16 @@ public class CharacterMovement : MonoBehaviour
     public void OnMove()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Entered trigger"); //testing code
+        Debug.Log(other.name); //Testing what object the character entered
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Exited trigger");
     }
 }
