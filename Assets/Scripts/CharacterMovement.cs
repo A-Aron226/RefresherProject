@@ -42,7 +42,8 @@ public class CharacterMovement : MonoBehaviour
 
         if (rb.position.y > 2)
         {
-            anim.SetTrigger("jump"); //placeholder animation until falling animation is ported
+            anim.SetTrigger("falling");
+            
         }
     }
 
