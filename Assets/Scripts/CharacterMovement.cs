@@ -39,7 +39,7 @@ public class CharacterMovement : MonoBehaviour
 
         var newVelocity = new Vector3(newInput.x * speed * Time.fixedDeltaTime, rb.velocity.y, newInput.z * speed * Time.fixedDeltaTime);// temp velocity
         rb.velocity = newVelocity;
-
+        
         if (rb.position.y > 2)
         {
             anim.SetTrigger("falling");
